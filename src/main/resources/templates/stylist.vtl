@@ -1,0 +1,16 @@
+<!-- stylist.vtl -->
+<div id="stylist-page">
+  <h1 id="stylist-name-banner">$stylist.getName()</h1>
+  <div id="stylist-clients">
+    #if($clients)
+      <h3>Clients of $stylist.getName(), Click on the name to see the Client details!</h3>
+      <br>
+        #foreach ($client in $clients)
+          #if ($stylist.getId() == $client.getStylistId())
+            <h3><a href="/stylist/$stylist.getId()/client/$client.getId()">$client.getName()</a></h3>
+          #end
+        #end
+    #end
+  </div>
+</div>
+<!-- stylist.vtl -->

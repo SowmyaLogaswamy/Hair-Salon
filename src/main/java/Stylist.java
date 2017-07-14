@@ -1,7 +1,7 @@
 //Import Packages
 import org.sql2o.*;
 import java.util.*;
-import java.math.BigInteger;
+
 
 //Create Class
 public class Stylist {
@@ -13,7 +13,6 @@ public class Stylist {
 public Stylist(String name, String description) {
   this.name = name;
   this.description = description;
-
 }
 
 //Create Save Method
@@ -54,16 +53,6 @@ public void updateName(String name) {
       .executeUpdate();
   }
 }
-
-// public void updatePhoneNumber(int phone_number) {
-//   try(Connection con = DB.sql2o.open()) {
-//     String sql = "UPDATE stylists SET phone_number = :phone_number WHERE id=:id";
-//     con.createQuery(sql)
-//       .addParameter("phone_number", phone_number)
-//       .addParameter("id", id)
-//       .executeUpdate();
-//   }
-// }
 
 public void delete() {
   try(Connection con = DB.sql2o.open()) {

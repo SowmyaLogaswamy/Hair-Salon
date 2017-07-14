@@ -3,7 +3,7 @@ import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.*;
-import java.math.BigInteger;
+
 
 //Create class
 public class StylistTest {
@@ -37,7 +37,7 @@ public class StylistTest {
 
 @Test
 public void all_retrievesAllInstancesOfStylist_true() {
-    Stylist testStylist = new Stylist("Geena", "Hair Stylist");
+    Stylist testStylist = new Stylist("Bella", "Hair Stylist");
   testStylist.save();
 Stylist testStylist2 = new Stylist("Roma", "Hair Stylist");
   testStylist2.save();
