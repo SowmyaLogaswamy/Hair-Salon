@@ -18,6 +18,22 @@ public Client(String name, String address, int phone_number, int stylist_id) {
   this.stylist_id = stylist_id;
 }
 
+public String getName() {
+  return name;
+}
+
+public String getAddress() {
+  return address;
+}
+
+public int getPhoneNumber() {
+  return phone_number;
+}
+
+public int getStylistId() {
+  return stylist_id;
+}
+
 
 
 }
