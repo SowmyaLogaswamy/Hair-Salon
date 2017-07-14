@@ -108,9 +108,4 @@ public boolean equals(Object otherClient) {
            this.getStylistId() == newClient.getStylistId();
   }
 }
-
-
-
-
-
 }
