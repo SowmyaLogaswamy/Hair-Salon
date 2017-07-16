@@ -70,7 +70,7 @@ public void updatePhoneNumber(int phone_number) {
   }
 }
 
-public void delete() {
+public static void delete(int id) {
   try(Connection con = DB.sql2o.open()) {
     String sql = "DELETE FROM clients WHERE id = :id;";
     con.createQuery(sql)

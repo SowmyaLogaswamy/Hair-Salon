@@ -4,7 +4,7 @@
   <h2 id="client-name-banner">Client Name: <em>$client.getName()</em></h2>
   <h2>Client Address:<em> $client.getAddress()</em></h2>
   <h2>Client Phone Number:<em> $client.getPhoneNumber()</em></h2>
-  <h2>Stylist Id:<em> $client.getStylistId()</em></h2>
+  <!-- <h2>Stylist Id:<em> $client.getStylistId()</em></h2> -->
   <div id="client-clients">
     #if($clients)
       <h3>Click on the name to see the Client details!</h3>
@@ -16,5 +16,6 @@
         #end
     #end
   </div>
+  <a href="/stylist/$stylist.getId()/clients/$client.getId()/delete">Delete $client.getName()</a>
 </div>
 <!-- client.vtl -->

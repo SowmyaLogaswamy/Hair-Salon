@@ -10,17 +10,18 @@
     <h2><a href = "/stylist/$stylist.getId()">$stylist.getName()</a></h2>
     #end
   #end
-
   <a href="/stylists/new">Add a new Stylist</a>
   </div>
- <div class = "client-list">
+
+ <!-- <div class = "client-list">
     #if($clients)
     <h4>List of Clients, click on them to view their details!</h4>
     <br>
+
     #foreach ($client in $clients)
     <h2><a href = "/client/$client.getId()">$client.getName()</a></h2>
     #end
   #end
-  <a href="/clients/new">Add a new Client</a>
-  </div>
+
+  </div> -->
 </div>

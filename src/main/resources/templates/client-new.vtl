@@ -1,15 +1,14 @@
 <!--client-new.vtl-->
 <h1>New Client</h1>
 
-<form action="/clients/add" method="post">
+<form action="/clients/add/$stylist_id" method="post">
   <label for="name">Client name</label>
   <input id="name" name="name" type="text">
   <label for="address">Address</label>
   <input id="address" name="address" type="text">
   <label for="number">Phone Number</label>
   <input id="number" name="number" type="text">
-  <label for="id">Stylist Id</label>
-  <input id="id" name="id" type="text">
+
 
   <button type="submit" class="btn btn-success">Add</button>
 </form>
