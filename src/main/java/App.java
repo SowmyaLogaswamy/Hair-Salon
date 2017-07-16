@@ -36,6 +36,16 @@ get("/stylist/:id", (request, response) -> {
   return new ModelAndView(model, layout);
 }, new VelocityTemplateEngine());
 
+
+get("/client/:id", (request, response) -> {
+  Map<String, Object> model = new HashMap<String, Object>();
+  Client client = Client.find(Integer.parseInt(request.params(":id")));
+  model.put("client", client);
+//  model.put("clients", Client.all());
+  model.put("template", "templates/client.vtl");
+  return new ModelAndView(model, layout);
+}, new VelocityTemplateEngine());
+
 get("/stylist/:stylistId/client/:id", (request, response) -> {
   Map<String, Object> model = new HashMap<String, Object>();
   Client client = Client.find(Integer.parseInt(request.params(":id")));
@@ -51,6 +61,13 @@ get("/stylists/new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("stylists", Stylist.all());
       model.put("template", "templates/stylist-new.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+get("/clients/new", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("clients", Client.all());
+      model.put("template", "templates/client-new.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -74,6 +91,21 @@ get("/stylists/new", (request, response) -> {
      String description = request.queryParams("description");
       Stylist newStylist = new Stylist(name, description);
      newStylist.save();
+       //model.put("stylist", newStylist);
+       model.put("stylists", Stylist.all());
+       model.put("clients", Client.all());
+       model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+     }, new VelocityTemplateEngine());
+
+     post("/clients/add", (request, response) -> {
+       Map<String, Object> model = new HashMap<String, Object>();
+      String userInputName = request.queryParams("name");
+     String userInputAddress = request.queryParams("address");
+     int userInputPhoneNumber = Integer.parseInt(request.queryParams("number"));
+     int userInputStylistId = Integer.parseInt(request.queryParams("id"));
+      Client newClient = new Client(userInputName, userInputAddress, userInputPhoneNumber,userInputStylistId);
+     newClient.save();
        //model.put("stylist", newStylist);
        model.put("stylists", Stylist.all());
        model.put("clients", Client.all());
