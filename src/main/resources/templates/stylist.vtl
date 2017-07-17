@@ -5,7 +5,6 @@
   <div id="stylist-clients">
     #if($clients)
       <h3>Clients of $stylist.getName(), Click on the name to see the Client details!</h3>
-      <br>
         #foreach ($client in $clients)
           #if ($stylist.getId() == $client.getStylistId())
             <h3><a href="/stylist/$stylist.getId()/client/$client.getId()">$client.getName()</a></h3>
@@ -15,7 +14,6 @@
     <a href="/clients/new/$stylist.getId()">Add Client to $stylist.getName()</a><br>
     <a href="/stylists/$stylist.getId()/delete">Delete $stylist.getName()</a><br>
     <a href="/stylists/$stylist.getId()/update">Update $stylist.getName()</a><br>
-    
   </div>
 </div>
 <!-- stylist.vtl -->

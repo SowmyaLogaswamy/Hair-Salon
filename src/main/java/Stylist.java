@@ -61,27 +61,12 @@ public static void delete(int id) {
     con.createQuery(sql)
       .addParameter("id", id)
       .executeUpdate();
-
-      String reassignUserSQL = "UPDATE clients SET stylist_id = 0 WHERE stylist_id = :id;";
-          con.createQuery(reassignUserSQL)
-            .addParameter("id", id)
-            .executeUpdate();
+    String clientAssign = "UPDATE clients SET stylist_id = 0 WHERE stylist_id = :id;";
+    con.createQuery(clientAssign)
+      .addParameter("id", id)
+      .executeUpdate();
   }
 }
-// public static void delete(int id) {
-//   try(Connection con = DB.sql2o.open()) {
-//     //first reassign users to stylist 0
-//     String reassignUserSQL = "UPDATE clients SET stylist_id = 0 WHERE stylist_id = :id;";
-//     con.createQuery(reassignUserSQL)
-//       .addParameter("id", id)
-//       .executeUpdate();
-//
-//     String deleteStylistSQL = "DELETE FROM stylists WHERE id = :id;";
-//     con.createQuery(deleteStylistSQL)
-//       .addParameter("id", id)
-//       .executeUpdate();
-//   } //end of try
-// }
 
 public String getName() {
   return name;
@@ -103,6 +88,6 @@ public boolean equals(Object otherStylist) {
     return this.getId() == newStylist.getId() &&
            this.getName().equals(newStylist.getName()) &&
            this.getDescription().equals(newStylist.getDescription());
-  }
-}
+         }
+     }
 }

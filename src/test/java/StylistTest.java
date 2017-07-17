@@ -4,7 +4,6 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import java.util.*;
 
-
 //Create class
 public class StylistTest {
   @Rule
@@ -18,57 +17,56 @@ public class StylistTest {
 
   @Test
   public void getName_retrievesStylistName_Geena() {
-      Stylist testStylist = new Stylist("Geena", "Hair Stylist");
+    Stylist testStylist = new Stylist("Geena", "Hair Stylist");
     assertEquals("Geena", testStylist.getName());
   }
 
   @Test
   public void getDescription_retrievesStylistDescription_HairStylist() {
-      Stylist testStylist = new Stylist("Geena", "Hair Stylist");
+    Stylist testStylist = new Stylist("Geena", "Hair Stylist");
     assertEquals("Hair Stylist", testStylist.getDescription());
   }
 
   @Test
   public void getId_instantiatesWithAnId_true() {
-      Stylist testStylist = new Stylist("Geena", "Hair Stylist");
+    Stylist testStylist = new Stylist("Geena", "Hair Stylist");
     testStylist.save();
     assertTrue(testStylist.getId() > 0);
 }
 
-@Test
-public void all_retrievesAllInstancesOfStylist_true() {
+  @Test
+  public void all_retrievesAllInstancesOfStylist_true() {
     Stylist testStylist = new Stylist("Bella", "Hair Stylist");
-  testStylist.save();
-Stylist testStylist2 = new Stylist("Roma", "Hair Stylist");
-  testStylist2.save();
-  assertEquals(true, Stylist.all().get(0).equals(testStylist));
-  assertEquals(true, Stylist.all().get(1).equals(testStylist2));
-}
+    testStylist.save();
+    Stylist testStylist2 = new Stylist("Roma", "Hair Stylist");
+    testStylist2.save();
+    assertEquals(true, Stylist.all().get(0).equals(testStylist));
+    assertEquals(true, Stylist.all().get(1).equals(testStylist2));
+  }
 
-@Test
-public void find_returnStylistWIthSameId_testStylist2() {
+  @Test
+  public void find_returnStylistWIthSameId_testStylist2() {
     Stylist testStylist = new Stylist("Geena", "Hair Stylist");
-  testStylist.save();
-  Stylist testStylist2 = new Stylist("Roma", "Hair Stylist");
-  testStylist2.save();
-  assertEquals(Stylist.find(testStylist2.getId()), testStylist2);
-}
+    testStylist.save();
+    Stylist testStylist2 = new Stylist("Roma", "Hair Stylist");
+    testStylist2.save();
+    assertEquals(Stylist.find(testStylist2.getId()), testStylist2);
+  }
 
-@Test
-public void updateName_updatesStylistName_Rani() {
+  @Test
+  public void updateName_updatesStylistName_Rani() {
     Stylist testStylist = new Stylist("Geena", "Hair Stylist");
-  testStylist.save();
-  testStylist.updateName("Rani");
-  assertEquals("Rani", Stylist.find(testStylist.getId()).getName());
-}
+    testStylist.save();
+    testStylist.update("Rani", "Expert Hair Stylist", testStylist.getId());
+    assertEquals("Rani", Stylist.find(testStylist.getId()).getName());
+  }
 
-@Test
-public void delete_deletesAStylist_true() {
+  @Test
+  public void delete_deletesAStylist_true() {
     Stylist testStylist2 = new Stylist("Geena", "Hair Stylist");
-  testStylist2.save();
-  int testStylistId = testStylist2.getId();
-  testStylist2.delete();
-  assertEquals(null, Stylist.find(testStylistId));
-}
-
+    testStylist2.save();
+    int testStylistId = testStylist2.getId();
+    Stylist.delete(testStylistId);
+    assertEquals(null, Stylist.find(testStylistId));
+  }
 }

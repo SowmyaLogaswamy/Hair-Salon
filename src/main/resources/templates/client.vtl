@@ -1,4 +1,3 @@
-
 <!-- client.vtl -->
 <div id="client-page">
   <h2 id="client-name-banner">Client Name: <em>$client.getName()</em></h2>
@@ -8,7 +7,6 @@
   <div id="client-clients">
     #if($clients)
       <h3>Click on the name to see the Client details!</h3>
-      <br>
         #foreach ($client in $clients)
           #if ($client.getId() == $client.getStylistId())
             <h3><a href="/stylist/$stylist.getId()/client/$client.getId()">$client.getName()</a></h3>
@@ -16,6 +14,7 @@
         #end
     #end
   </div>
-  <a href="/stylist/$stylist.getId()/clients/$client.getId()/delete">Delete $client.getName()</a>
+  <a href="/stylist/$stylist.getId()/clients/$client.getId()/delete">Delete $client.getName()</a><br>
+  <a href="/stylists/$stylist.getId()/client/$client.getId()/update">Update $client.getName()</a>
 </div>
 <!-- client.vtl -->

@@ -47,48 +47,39 @@ public class ClientTest {
     assertTrue(testClient.getId() > 0);
 }
 
-@Test
-public void all_retrievesAllInstancesOfClient_true() {
-  Client testClient = new Client("Sowmya", "Redmond", 456-422-2990, 1);
-  testClient.save();
-  Client testClient2 = new Client("Kumar", "Seattle", 456-422-1234, 2);
-  testClient2.save();
-  assertEquals(true, Client.all().get(0).equals(testClient));
-  assertEquals(true, Client.all().get(1).equals(testClient2));
-}
+  @Test
+  public void all_retrievesAllInstancesOfClient_true() {
+    Client testClient = new Client("Sowmya", "Redmond", 456-422-2990, 1);
+    testClient.save();
+    Client testClient2 = new Client("Kumar", "Seattle", 456-422-1234, 2);
+    testClient2.save();
+    assertEquals(true, Client.all().get(0).equals(testClient));
+    assertEquals(true, Client.all().get(1).equals(testClient2));
+  }
 
-@Test
-public void find_returnClientWIthSameId_testClient2() {
-  Client testClient = new Client("Sowmya", "Redmond", 456-422-2990, 1);
-  testClient.save();
-  Client testClient2 = new Client("Kumar", "Seattle", 456-422-1234, 2);
-  testClient2.save();
-  assertEquals(Client.find(testClient2.getId()), testClient2);
-}
+  @Test
+  public void find_returnClientWIthSameId_testClient2() {
+    Client testClient = new Client("Sowmya", "Redmond", 456-422-2990, 1);
+    testClient.save();
+    Client testClient2 = new Client("Kumar", "Seattle", 456-422-1234, 2);
+    testClient2.save();
+    assertEquals(Client.find(testClient2.getId()), testClient2);
+  }
 
-@Test
-public void updateName_updatesClientName_Raj() {
-  Client testClient = new Client("Sowmya", "Redmond", 456-422-2990, 1);
-  testClient.save();
-  testClient.updateName("Raj");
-  assertEquals("Raj", Client.find(testClient.getId()).getName());
-}
+  @Test
+  public void update_updatesClient_true() {
+    Client testClient = new Client("Sowmya", "Redmond", 456-422-2990, 1);
+    testClient.save();
+    testClient.update("Raj", "bellevue", 425-435-9721 ,testClient.getId());
+    assertEquals("Raj", Client.find(testClient.getId()).getName());
+  }
 
-@Test
-public void updatePhoneNumber_updatesClientPhoneNumber_4254356789() {
-  Client testClient = new Client("Sowmya", "Redmond", 456-422-2990, 1);
-  testClient.save();
-  testClient.updatePhoneNumber(425-435-6789);
-  assertEquals(425-435-6789, Client.find(testClient.getId()).getPhoneNumber());
-}
-
-@Test
-public void delete_deletesAClient_true() {
-  Client testClient2 = new Client("Kumar", "Seattle", 456-422-1234, 2);
-  testClient2.save();
-  int testClientId = testClient2.getId();
-  testClient2.delete();
-  assertEquals(null, Client.find(testClientId));
-}
-
+  @Test
+  public void delete_deletesAClient_true() {
+    Client testClient2 = new Client("Kumar", "Seattle", 456-422-1234, 2);
+    testClient2.save();
+    int testClientId = testClient2.getId();
+    Client.delete(testClient2.getId());
+    assertEquals(null, Client.find(testClientId));
+  }
 }

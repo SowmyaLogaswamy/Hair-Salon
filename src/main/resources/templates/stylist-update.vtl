@@ -1,13 +1,11 @@
 <!--stylist-update.vtl-->
 <h1>Update description of $stylist.getName()</h1>
 
-<form action="/stylists/:stylist_id/update" method="post">
+<form action="/stylists/$stylist.getId()/update" method="post">
   <label for="name">Stylist name</label>
   <input value = $stylist.getName() id="name" name="name" type="text">
-
   <label for="description">Details</label>
   <input id="description" name="description" type="text">
-
   <button type="submit" class="btn btn-success">Update</button>
 </form>
 <!--stylist-update.vtl-->

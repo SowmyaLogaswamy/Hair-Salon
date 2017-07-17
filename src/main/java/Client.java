@@ -2,7 +2,6 @@
 import org.sql2o.*;
 import java.util.*;
 
-
 //Create Class
 public class Client {
   private String name;
@@ -40,7 +39,7 @@ public static List<Client> all() {
   }
 }
 
-public static Client find(int id){
+public static Client find(int id) {
   try(Connection con = DB.sql2o.open()){
     String sql = "SELECT * FROM clients WHERE id=:id";
     Client client = con.createQuery(sql)
@@ -50,20 +49,12 @@ public static Client find(int id){
   }
 }
 
-public void updateName(String name) {
+public static void update(String name, String address, int phone_number, int id) {
   try(Connection con = DB.sql2o.open()) {
-    String sql = "UPDATE clients SET name = :name WHERE id=:id";
+    String sql = "UPDATE clients SET name = :name, address = :address, phone_number = :phone_number WHERE id=:id";
     con.createQuery(sql)
       .addParameter("name", name)
-      .addParameter("id", id)
-      .executeUpdate();
-  }
-}
-
-public void updatePhoneNumber(int phone_number) {
-  try(Connection con = DB.sql2o.open()) {
-    String sql = "UPDATE clients SET phone_number = :phone_number WHERE id=:id";
-    con.createQuery(sql)
+      .addParameter("address", address)
       .addParameter("phone_number", phone_number)
       .addParameter("id", id)
       .executeUpdate();
@@ -106,6 +97,6 @@ public boolean equals(Object otherClient) {
            this.getAddress().equals(newClient.getAddress()) &&
            this.getPhoneNumber()==newClient.getPhoneNumber() &&
            this.getStylistId() == newClient.getStylistId();
-  }
-}
+        }
+    }
 }
