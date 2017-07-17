@@ -1,4 +1,4 @@
-# _Hair Salon_
+# _Management software for a Hair Salon_
 
 #### _A website for a up-and-coming hair salon to execute various tasks relating to tracking stylists and clients to make their day to day life easier. Coded on June 14, 2017_
 
@@ -6,16 +6,7 @@
 
 ## Description
 
-_This is a management software with a dashboard which will allow the managers of a hair salon to execute various tasks relating to tracking stylists and clients to make their day to day life easier._
- _A salon employee needs to be able to,_
-* _See a list of all our stylists_
-* _Select a stylist, see their details, and see a list of all clients that belong to that stylist_
-* _Add new stylists to our system when they are hired_
-* _Add new clients to a specific stylist_
-* _Update a stylist's details_
-* _Update a client's details_
-* _Delete a stylist if they're no longer employed here_
-* _Delete a client if they no longer visit our salon_
+_This is a management software with a dashboard which will allow the managers of a hair salon to execute various tasks relating to tracking stylists and clients to make their day to day life easier. A salon employee needs to be able to view list of stylists, add, update and delete stylists and clients respectively_
 
 ## Setup/Installation Requirements
 
