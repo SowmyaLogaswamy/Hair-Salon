@@ -1,14 +1,14 @@
 <div class = "container">
   <h1>Night Star Hair Salon</h1>
-
+  <br>
   <div class = "stylist-list">
     #if($stylists)
-    <h4>List of Stylists, Click on them to view their clients!</h4>
-    <br>
+    <h3>List of Stylists, Click on them to view their clients!</h3>
     #foreach ($stylist in $stylists)
-    <h2><a href = "/stylist/$stylist.getId()">$stylist.getName()</a></h2>
+    <h4><a href = "/stylist/$stylist.getId()">$stylist.getName()</a></h4>
     #end
   #end
+  <br>
   <a href="/stylists/new">Add a new Stylist</a>
   </div>
 </div>

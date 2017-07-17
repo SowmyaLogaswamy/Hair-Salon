@@ -8,18 +8,47 @@
 
 _This is a management software with a dashboard which will allow the managers of a hair salon to execute various tasks relating to tracking stylists and clients to make their day to day life easier. A salon employee needs to be able to view list of stylists, add, update and delete stylists and clients respectively_
 
-## Setup/Installation Requirements
+## Installation
 
-* Enter 'postgres' on a command prompt
-* Enter 'psql' in another tab
-* In PSQL:
-* CREATE DATABASE hair_salon;
-* Connect to the database using \c hair_salon;
-* CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, description varchar);
-* CREATE TABLE clients (id serial PRIMARY KEY, name varchar, address varchar, phone_number int,  stylist_Id int);
-* Insert values into the tables stylists and clients.
-* CREATE DATABASE hair_salon_test to maintain a separate test database;
-* Connect to the database using \c hair_salon_test;
+```
+$ git clone https://github.com/SowmyaLogaswamy/Hair-Salon.git
+$ cd Hair-Salon
+```
+
+Install postgres:
+```
+$ postgres
+```
+
+Launch psql:
+```
+$ psql
+```
+
+Create databases:
+```
+Guest=# CREATE DATABASE hair_salon;
+Guest=# CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
+```
+
+Connect databases:
+```
+Guest=# \c hair_salon;
+Guest=# \c hair_salon_test;
+```
+
+Create tables:
+```
+hair_salon=# CREATE TABLE stylists (id serial PRIMARY KEY, name varchar, description varchar);
+hair_salon=# CREATE TABLE clients (id serial PRIMARY KEY, name varchar, address varchar, phone_number int,  stylist_id int);
+```
+
+Run the webserver:
+```
+$ gradle run
+```
+
+Navigate to `localhost:4567` in browser.
 
 ## Code Specs
 
